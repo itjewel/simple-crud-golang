@@ -1,1 +1,1 @@
-Run Application: go run main.go
+Run apps: `go run main.go`

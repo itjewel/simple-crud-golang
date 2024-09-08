@@ -1,13 +1,19 @@
 package handlers
 
 import (
-    "net/http"
+	"fmt"
+	"net/http"
 )
 
 func CreatePage(w http.ResponseWriter, r *http.Request) {
-    data := map[string]string{
-        "Title":  "Create - Simple CRUD",
-        "Header": "Create an Item",
-    }
-    Tmpl.ExecuteTemplate(w, "create.html", data)  // Use global 'Tmpl'
+	if r.Method == "POST" {
+		item := r.FormValue("item")
+		fmt.Fprintf(w, "Item '%s' created successfully!", item)
+	} else {
+		data := map[string]string{
+			"Title":  "Create - Simple CRUD",
+			"Header": "Create an Item",
+		}
+		Tmpl.ExecuteTemplate(w, "create.html", data)
+	}
 }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Item</title>
+</head>
+<body>
+    <h1>{{.Header}}</h1>
+    <form action="/delete" method="POST">
+        <label for="item">Item ID to delete:</label>
+        <input type="text" id="item" name="item">
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
